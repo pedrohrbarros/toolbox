@@ -7,10 +7,10 @@ import { downloadFile } from "@/tools/file";
 export default function DocumentConverterSection() {
   const { convertWordToPDF } = useDocumentStore((state) => state)
   const { handleSubmit, control, register } = useForm<{ file: FileList }>();
-  const { data, error, isSuccess, reset, mutate, isLoading, isError } = useMutation<File, Error, any>(convertWordToPDF);
+  const { data, error, isSuccess, reset, mutate, isLoading, isError } = useMutation<File, Error, File>(convertWordToPDF);
   
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center gap-4 md:gap-16 p-10 md:p-20">
+    <section className="w-full h-full flex flex-col justify-center items-center gap-4 md:gap-16 p-10 md:p-20">
       <div className="w-full h-auto flex flex-row justify-center items-center ">
         <h1 className="text-white text-4xl font-bold font-text bg-transparent text-center">
           Convert Word to PDF
@@ -43,6 +43,6 @@ export default function DocumentConverterSection() {
           initial_label="Convert"
         />
       </form>
-    </div>
+    </section>
   )
 }

@@ -3,11 +3,11 @@ import { create } from 'zustand'
 import { api } from '@/config/axios'
 
 interface DocumentState {
-  convertWordToPDF(file: File): Promise<any>
+  convertWordToPDF(file: File): Promise<File>
 }
 
 export const useDocumentStore = create<DocumentState>(() => ({
-  convertWordToPDF: async (file: File): Promise<any> => {
+  convertWordToPDF: async (file: File): Promise<File> => {
     return new Promise(async (resolve, reject) => {
       try {
         const form_data = new FormData()

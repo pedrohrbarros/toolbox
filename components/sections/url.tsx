@@ -11,7 +11,7 @@ export default function URLSection() {
   const [successfull_message, setSuccessfullMessage] = useState<string>("Copy to clipboard")
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center gap-4 md:gap-16 p-10 md:p-20">
+    <section className="w-full h-full flex flex-col justify-center items-center gap-4 md:gap-16 p-10 md:p-20">
       <div className="w-full h-auto flex flex-row justify-center items-center ">
         <h1 className="text-white text-4xl font-bold font-text bg-transparent text-center">
           Shorten your URL
@@ -48,6 +48,6 @@ export default function URLSection() {
           data={successfull_message}
         />
       </form>
-    </div>
+    </section>
   )
 }

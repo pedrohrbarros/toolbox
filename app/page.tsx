@@ -28,6 +28,7 @@ export default function Home() {
         <Carousel className="w-full h-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
           <Section.URL/>
           <Section.Document/>
+          <Section.Secret/>
         </Carousel>
       </div>
     </main>
