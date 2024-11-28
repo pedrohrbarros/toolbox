@@ -38,11 +38,13 @@ export default function SecretSection() {
         <div className="w-full flex flex-row flex-nowrap justify-start items-center">
           <label
             className="text-white font-text text-xl"
+            htmlFor="length"
           >
             Secret Length
           </label>
         </div>
         <input
+          id="length"
           className="w-full text-xl bg-transparent border-b-2 border-gray-500 outline-none focus:border-gray-100 transition-all duration-500 font-text p-4"
           placeholder="Length"
           type="number"
