@@ -3,23 +3,18 @@ import { create } from "zustand";
 import { api } from "@/config/axios";
 
 interface URLState {
-  shortened_url?: string;
   shortenURL(url: string): Promise<string>;
-  setShortenedURL: (url: string) => void;
 }
 
-export const useURLStore = create<URLState>((set) => ({
+export const useURLStore = create<URLState>(() => ({
   shortenURL: async (url: string): Promise<string> => {
     return new Promise(async (resolve, reject) => {
-      const response = await api.post("/shortener-url", { url });
-      if (response.status !== 200) {
-        reject(new Error("Failed to shorten URL"));
-      } else {
+      try {
+        const response = await api.post("/shortener-url/", { url });
         resolve(response.data)
+      } catch (error) {
+        reject(new Error("Failed to shorten URL"));
       }
     })
-  },
-  setShortenedURL: (url: string) => {
-    set({ shortened_url: url });
   },
 }));
