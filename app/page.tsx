@@ -1,9 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { Carousel } from "@material-tailwind/react";
+import { Carousel, Spinner } from "@material-tailwind/react";
+import { useMutation } from "react-query";
+import { useForm } from "react-hook-form";
 
 import logo from "@/assets/logo.png";
+import { useURLStore } from "@/hooks/url";
+import { motion } from "motion/react"
 import { Section } from "@/components/sections";
 
 export default function Home() {
@@ -21,11 +25,11 @@ export default function Home() {
         </h1>
       </div>
       <div className="w-full min-h-[75vh] p-4 md:p-16">
-        <Carousel className="w-full h-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100" children={[
-          (<Section.URL key={1}/>),
-          (<Section.Document key={2}/>),
-          (<Section.Secret key={3}/>)
-        ]} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+        <Carousel className="w-full h-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          <Section.URL key={1}/>
+          <Section.Document key={2}/>
+          <Section.Secret key={3}/>
+        </Carousel>
       </div>
     </main>
   );
