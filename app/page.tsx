@@ -1,13 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Carousel, Spinner } from "@material-tailwind/react";
-import { useMutation } from "react-query";
-import { useForm } from "react-hook-form";
+import { Carousel } from "@material-tailwind/react";
 
 import logo from "@/assets/logo.png";
-import { useURLStore } from "@/hooks/url";
-import { motion } from "motion/react"
 import { Section } from "@/components/sections";
 
 export default function Home() {
@@ -29,8 +25,7 @@ export default function Home() {
           (<Section.URL key={1}/>),
           (<Section.Document key={2}/>),
           (<Section.Secret key={3}/>)
-        ]} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-        </Carousel>
+        ]} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
       </div>
     </main>
   );
