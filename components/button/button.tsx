@@ -55,7 +55,7 @@ export default function SubmitButton({
             )
             : isLoading ?
               (
-                <Spinner className="h-12 w-12" />
+                <Spinner className="h-12 w-12" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
               )
               :
               (
