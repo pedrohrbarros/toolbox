@@ -54,58 +54,46 @@ export default function SecretSection() {
           className="w-full h-auto flex flex-row justify-start items-start gap-4 flex-wrap"
         >
           <Checkbox
-            className="mb-0"
-            label={
-              <p
-                className="font-text text-white text-lg"
-              >
-                Special Characters
-              </p>
-            }
+            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} className="mb-0"
+            label={<p
+              className="font-text text-white text-lg"
+            >
+              Special Characters
+            </p>}
             color="green"
             defaultChecked
             ripple
-            {...register("special_characters")}
-          />
+            {...register("special_characters", { required: true })}          />
           <Checkbox
-            label={
-              <p
-                className="font-text text-white text-lg"
-              >
-                Uppercase Characters
-              </p>
-            }
+            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label={<p
+              className="font-text text-white text-lg"
+            >
+              Uppercase Characters
+            </p>}
             color="green"
             defaultChecked
             ripple
-            {...register("uppercase_characters")}
-          />
+            {...register("uppercase_characters")}          />
           <Checkbox
-            label={
-              <p
-                className="font-text text-white text-lg"
-              >
-                Lowcase Characters
-              </p>
-            }
+            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label={<p
+              className="font-text text-white text-lg"
+            >
+              Lowcase Characters
+            </p>}
             color="green"
             defaultChecked
             ripple
-            {...register("lowcase_characters")}
-          />
+            {...register("lowcase_characters")}          />
           <Checkbox
-            label={
-              <p
-                className="font-text text-white text-lg"
-              >
-                Numbers
-              </p>
-            }
+            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label={<p
+              className="font-text text-white text-lg"
+            >
+              Numbers
+            </p>}
             color="green"
             defaultChecked
             ripple
-            {...register("numbers")}
-          />
+            {...register("numbers")}          />
         </div>
         <Button.Submit
           isError={isError}

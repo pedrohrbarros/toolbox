@@ -25,10 +25,11 @@ export default function Home() {
         </h1>
       </div>
       <div className="w-full min-h-[75vh] p-4 md:p-16">
-        <Carousel className="w-full h-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
-          <Section.URL/>
-          <Section.Document/>
-          <Section.Secret/>
+        <Carousel className="w-full h-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100" children={[
+          (<Section.URL key={1}/>),
+          (<Section.Document key={2}/>),
+          (<Section.Secret key={3}/>)
+        ]} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         </Carousel>
       </div>
     </main>
