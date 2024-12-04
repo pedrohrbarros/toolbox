@@ -5,12 +5,8 @@ import { Carousel } from "@material-tailwind/react";
 
 import logo from "@/assets/logo.png";
 import { Section } from "@/components/sections";
-import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    console.log(process.env.NEXT_PUBLIC_BACKEND_API_URL)
-  })
   return (
     <main className="w-full min-h-screen h-full overflow-hidden flex flex-col justify-start items-center  bg-gradient-to-br from-teal-900 to-deep-purple-900">
       <div className="w-full h-[25vh] flex flex-row flex-nowrap justify-center items-center px-4 relative">
