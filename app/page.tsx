@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    console.log()
+    console.log(process.env.NEXT_PUBLIC_BACKEND_API_URL)
   })
   return (
     <main className="w-full min-h-screen h-full overflow-hidden flex flex-col justify-start items-center  bg-gradient-to-br from-teal-900 to-deep-purple-900">
