@@ -10,7 +10,7 @@ export const useURLStore = create<URLState>(() => ({
   shortenURL: async (url: string): Promise<string> => {
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await api.post("/shortener-url/", { url });
+        const response = await api.post("/shortener-url", { url });
         resolve(response.data)
       } catch (error) {
         reject(new Error("Failed to shorten URL"));
