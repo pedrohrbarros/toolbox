@@ -10,7 +10,6 @@ export const useSecretStore = create<SecretState>(() => ({
   getSecret: async (request: SecretRequest) => {
     return new Promise(async (resolve, reject) => {
       try {
-        console.log(request)
         const response = await api.post("/secret-generator", request)
         resolve(response.data)
       } catch (error) {
