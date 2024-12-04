@@ -12,7 +12,7 @@ export const useDocumentStore = create<DocumentState>(() => ({
       try {
         const form_data = new FormData()
         form_data.append('file', file)
-        const response = await api.post('/convert', form_data, {
+        const response = await api.post('/convert/', form_data, {
           responseType: 'blob'
         })
         const pdf_blob = new Blob([response.data], { type: 'application/pdf' })
