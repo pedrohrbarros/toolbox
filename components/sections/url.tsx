@@ -6,13 +6,13 @@ import { useState } from "react";
 
 export default function URLSection() {
   const { shortenURL } = useURLStore((state) => state);
-  const { handleSubmit, control, register } = useForm<{ url: string }>();
+  const { handleSubmit, control, register, formState: { errors } } = useForm<{ url: string }>();
   const { data, error, isSuccess, reset, mutate, isLoading, isError } = useMutation<string, Error, string>(shortenURL);
   const [successfull_message, setSuccessfullMessage] = useState<string>("Copy to clipboard")
 
   return (
     <section className="w-full h-full flex flex-col justify-center items-center gap-4 md:gap-16 p-10 md:p-20">
-      <div className="w-full h-auto flex flex-row justify-center items-center ">
+      <div className="w-full h-auto flex flex-row justify-center items-center">
         <h1 className="text-white text-4xl font-bold font-text bg-transparent text-center">
           Shorten your URL
         </h1>
@@ -32,18 +32,19 @@ export default function URLSection() {
         <input
           className="w-full text-xl bg-transparent border-b-2 border-gray-500 outline-none focus:border-gray-100 transition-all duration-500 font-text p-4"
           placeholder="Enter URL"
+          required
           type="url"
           onFocus={() => {
             reset()
             setSuccessfullMessage("Copy to clipboard")
           }}
-          {...register("url", { required: true })}
+          {...register("url")}
         />
         <Button.Submit
           isError={isError}
           isLoading={isLoading}
           isSuccess={isSuccess}
-          error={error}
+          error={error ?? errors.url}
           initial_label="Shorten"
           data={successfull_message}
         />

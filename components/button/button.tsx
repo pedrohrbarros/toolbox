@@ -1,5 +1,6 @@
 import { Spinner } from "@material-tailwind/react";
 import { motion } from "framer-motion";
+import { FieldError } from "react-hook-form";
 
 export default function SubmitButton({
   isLoading,
@@ -13,7 +14,7 @@ export default function SubmitButton({
   isSuccess: boolean
   isError: boolean
   data: string | undefined
-  error: Error | null
+  error: Error | null | FieldError | undefined
   initial_label: string
 }) {
   return (

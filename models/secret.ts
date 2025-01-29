@@ -1,4 +1,4 @@
-export interface SecretRequest {
+export interface GenerateSecretRequest {
   length?: number
   special_characters?: boolean
   uppercase_characters?: boolean

@@ -1,19 +1,19 @@
 import { useSecretStore } from "@/hooks/secret";
-import { SecretRequest } from "@/models/secret";
+import { GenerateSecretRequest } from "@/models/secret";
 import { Checkbox } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import { Button } from "../button";
 import { useState } from "react";
 
-export default function SecretSection() {
-  const { getSecret } = useSecretStore((state) => state);
-  const { handleSubmit, control, register } = useForm<SecretRequest>({
+export default function GenerateSecretSection() {
+  const { getRandomSecret } = useSecretStore((state) => state);
+  const { handleSubmit, control, register, formState: { errors } } = useForm<GenerateSecretRequest>({
     defaultValues: {
       length: 10
     }
   });
-  const { data, error, isSuccess, reset, mutate, isLoading, isError } = useMutation<string, Error, SecretRequest>(getSecret);
+  const { data, error, isSuccess, reset, mutate, isLoading, isError } = useMutation<string, Error, GenerateSecretRequest>(getRandomSecret);
   const [successfull_message, setSuccessfullMessage] = useState<string>("Copy to clipboard")
 
   return (
@@ -25,7 +25,7 @@ export default function SecretSection() {
       </div>
       <form
         className="w-full h-full flex flex-col justify-center items-center flex-wrap gap-4"
-        onSubmit={handleSubmit((form_data: SecretRequest) => {
+        onSubmit={handleSubmit((form_data: GenerateSecretRequest) => {
           if (isSuccess) {
             navigator.clipboard.writeText(data)
             control._reset()
@@ -48,7 +48,9 @@ export default function SecretSection() {
           className="w-full text-xl bg-transparent border-b-2 border-gray-500 outline-none focus:border-gray-100 transition-all duration-500 font-text p-4"
           placeholder="Length"
           type="number"
-          {...register("length", { required: true, min: 1, valueAsNumber: true })}
+          required
+          min={1}
+          {...register("length", { valueAsNumber: true })}
         />
         <div
           className="w-full h-auto flex flex-row justify-start items-start gap-4 flex-wrap"
@@ -63,7 +65,7 @@ export default function SecretSection() {
             color="green"
             defaultChecked
             ripple
-            {...register("special_characters", { required: true })}          />
+            {...register("special_characters")}          />
           <Checkbox
             onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label={<p
               className="font-text text-white text-lg"
